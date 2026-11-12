@@ -38,3 +38,13 @@ rules.txt
 В репозитории GM_01-Project-General будет храниться документация всех проектов, разделённая по каталогам, а также единые шаблоны.
 
 Технические сведения, которые пока не подтверждены, будем отмечать как требующие уточнения. Не будем выдавать предполагаемые параметры за утверждённые.
+
+Приложение 1. Список репозиториев GitHub связанных проектов
+https://github.com/dmnazarenko-creator/GM_01-Project-General
+https://github.com/dmnazarenko-creator/GM_02-Converter-Modbus-TKA
+https://github.com/dmnazarenko-creator/GM_03-Project-Lamp
+https://github.com/dmnazarenko-creator/GM_04-Project-Observer
+https://github.com/dmnazarenko-creator/GM_05-Hub-Modbus-Modbus
+https://github.com/dmnazarenko-creator/GM_06-Hub-Modbus-Ethernet
+https://github.com/dmnazarenko-creator/GM_07-Smart-chip
+https://github.com/dmnazarenko-creator/GM_99-Common-Libraries
