@@ -9,6 +9,9 @@
 Для оформления можно использовать единые титульные листы, логотип, колонтитулы, нумерацию разделов, таблицы и единые корпоративные цвета.
 Документацию хранить в Markdown
 
+Настройка доступа Applications
+https://github.com/settings/installations
+
 
 You have created too many repositories, too quickly. Please try again later.
 
