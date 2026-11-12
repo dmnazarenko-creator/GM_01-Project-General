@@ -55,7 +55,7 @@ a { color: BRAND; text-decoration: none; }
 for path in sorted(SOURCE.glob("[0-9][0-9]-*.md")):
     md = path.read_text(encoding="utf-8")
     # The repository Markdown includes its own logo; PDF places it into the page header.
-    md = re.sub(r'^<img\\s+[^>]*WAS_BlueWhite\\.png[^>]*>\\s*\\n?', '', md, count=1, flags=re.I|re.M)
+    md = "\n".join(line for line in md.split("\n") if not ('WAS_BlueWhite.png' in line and line.lstrip().startswith('<img ')))
     content = markdown.markdown(md, extensions=["tables", "fenced_code", "sane_lists"])
     document = (f'<!doctype html><html lang="ru"><head><meta charset="utf-8">'
                 f'<title>{escape(path.stem)}</title><style>{CSS}</style></head>'
