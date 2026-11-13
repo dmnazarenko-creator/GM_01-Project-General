@@ -8,9 +8,7 @@ from PIL import Image
 from weasyprint import HTML
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "Projects" / "GM_01-Project-General"
-TARGET = SOURCE / "PDF"
-TARGET.mkdir(parents=True, exist_ok=True)
+PROJECTS = ROOT / "Projects"
 LOGO = ROOT / "WAS_BlueWhite.png"
 
 def brand_color():
@@ -52,7 +50,9 @@ pre { white-space: pre-wrap; background: #f4f6f8; padding: 8pt; }
 a { color: BRAND; text-decoration: none; }
 """.replace("BRAND", BLUE)
 
-for path in sorted(SOURCE.glob("[0-9][0-9]-*.md")):
+for path in sorted(PROJECTS.glob("GM_*/[0-9][0-9]-*.md")):
+    target = path.parent / "PDF"
+    target.mkdir(parents=True, exist_ok=True)
     md = path.read_text(encoding="utf-8")
     # The repository Markdown includes its own logo; PDF places it into the page header.
     md = "\n".join(line for line in md.split("\n") if not ('WAS_BlueWhite.png' in line and line.lstrip().startswith('<img ')))
@@ -61,6 +61,6 @@ for path in sorted(SOURCE.glob("[0-9][0-9]-*.md")):
                 f'<title>{escape(path.stem)}</title><style>{CSS}</style></head>'
                 f'<body><div id="brand-header"><img src="{LOGO.as_uri()}" alt="WAS"></div>'
                 f'{content}</body></html>')
-    output = TARGET / (path.stem + ".pdf")
+    output = target / (path.stem + ".pdf")
     HTML(string=document, base_url=ROOT.as_uri()).write_pdf(output)
     print(f"Created {output.relative_to(ROOT)}: {output.stat().st_size} bytes")
