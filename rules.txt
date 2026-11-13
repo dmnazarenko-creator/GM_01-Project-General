@@ -13,8 +13,6 @@
 https://github.com/settings/installations
 
 
-You have created too many repositories, too quickly. Please try again later.
-
 rules.txt
 Порядок работы
 Каждую часть документа я буду обозначать фразой "текст документа"
