@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'Projects/GM_01-Project-General/**'
+      - 'Projects/GM_*/**'
       - 'Projects/assets/**'
       - 'WAS_BlueWhite.png'
       - 'tools/build_pdfs.py'
@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Projects/GM_01-Project-General/PDF/
+          git add -- Projects/GM_*/PDF/
           if ! git diff --cached --quiet; then
             git commit -m "docs: update branded PDF exports [skip pdf]"
             git push
